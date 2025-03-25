@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         txtSearch = New TextBox()
         lstArtists = New ListBox()
         btnShow = New Button()
@@ -56,13 +57,13 @@ Partial Class Form1
         btnShow.Name = "btnShow"
         btnShow.Size = New Size(208, 48)
         btnShow.TabIndex = 2
-        btnShow.Text = "Button1"
+        btnShow.Text = "Show"
         btnShow.UseVisualStyleBackColor = True
         ' 
         ' lblSong
         ' 
         lblSong.AutoSize = True
-        lblSong.Location = New Point(824, 536)
+        lblSong.Location = New Point(442, 480)
         lblSong.Name = "lblSong"
         lblSong.Size = New Size(83, 32)
         lblSong.TabIndex = 3
@@ -71,25 +72,28 @@ Partial Class Form1
         ' lstSongs
         ' 
         lstSongs.FormattingEnabled = True
-        lstSongs.Location = New Point(873, 589)
+        lstSongs.Location = New Point(674, 530)
         lstSongs.Name = "lstSongs"
         lstSongs.Size = New Size(105, 36)
         lstSongs.TabIndex = 4
+        lstSongs.Visible = False
         ' 
         ' picCover
         ' 
-        picCover.Location = New Point(687, 201)
+        picCover.Location = New Point(442, 137)
         picCover.Name = "picCover"
-        picCover.Size = New Size(252, 242)
+        picCover.Size = New Size(354, 340)
+        picCover.SizeMode = PictureBoxSizeMode.StretchImage
         picCover.TabIndex = 5
         picCover.TabStop = False
         ' 
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(60, 32)
+        Label2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Label2.Location = New Point(26, 39)
         Label2.Name = "Label2"
-        Label2.Size = New Size(210, 32)
+        Label2.Size = New Size(303, 45)
         Label2.TabIndex = 6
         Label2.Text = "Artist to search for"
         ' 
@@ -97,22 +101,42 @@ Partial Class Form1
         ' 
         btnClear.Location = New Point(256, 137)
         btnClear.Name = "btnClear"
-        btnClear.Size = New Size(47, 47)
+        btnClear.Size = New Size(115, 47)
         btnClear.TabIndex = 7
-        btnClear.Text = "Button2"
+        btnClear.Text = "search"
         btnClear.UseVisualStyleBackColor = True
         ' 
         ' imlCovers
         ' 
         imlCovers.ColorDepth = ColorDepth.Depth32Bit
-        imlCovers.ImageSize = New Size(16, 16)
+        imlCovers.ImageStream = CType(resources.GetObject("imlCovers.ImageStream"), ImageListStreamer)
         imlCovers.TransparentColor = Color.Transparent
+        imlCovers.Images.SetKeyName(0, "You_re The Voice.jpg")
+        imlCovers.Images.SetKeyName(1, "Solid Rock.jpg")
+        imlCovers.Images.SetKeyName(2, "Send Me an Angel.jpg")
+        imlCovers.Images.SetKeyName(3, "Saturday Night.jpg")
+        imlCovers.Images.SetKeyName(4, "Rip It Up.jpg")
+        imlCovers.Images.SetKeyName(5, "New Groove.jpg")
+        imlCovers.Images.SetKeyName(6, "Like Wow Wipeout.jpg")
+        imlCovers.Images.SetKeyName(7, "Just Like Fire Would.jpg")
+        imlCovers.Images.SetKeyName(8, "Just Ace.jpg")
+        imlCovers.Images.SetKeyName(9, "Early Warning.jpg")
+        imlCovers.Images.SetKeyName(10, "Dumb Things.jpg")
+        imlCovers.Images.SetKeyName(11, "Come Said the Boy.jpg")
+        imlCovers.Images.SetKeyName(12, "Blue Sky Mine.jpg")
+        imlCovers.Images.SetKeyName(13, "We_re Coming Home.jpg")
+        imlCovers.Images.SetKeyName(14, "When the River Runs Dry.jpg")
+        imlCovers.Images.SetKeyName(15, "Straight Lines.jpg")
+        imlCovers.Images.SetKeyName(16, "Black Fingernails Red Wine.jpg")
+        imlCovers.Images.SetKeyName(17, "Zebra.jpg")
+        imlCovers.Images.SetKeyName(18, "Science Fiction.jpg")
+        imlCovers.Images.SetKeyName(19, "Never Tear Us Apart.jpg")
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1009, 637)
+        ClientSize = New Size(838, 637)
         Controls.Add(btnClear)
         Controls.Add(Label2)
         Controls.Add(picCover)

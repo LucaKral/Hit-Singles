@@ -17,7 +17,7 @@
         Dim Last As Integer = lstArtists.Items.Count - 1
         Dim I As Integer = 0
         Dim ThisItem As String = ""
-        If txtSearch.Text > "" Then 'must have something to find
+        If ThisItem.IndexOf(txtSearch.Text, StringComparison.OrdinalIgnoreCase) > -1 Then
             lblSong.Text = ""
             picCover.Image = Nothing
             Do
@@ -30,7 +30,7 @@
                 I += 1 'next item
             Loop Until I > Last Or MatchFound
             If Not MatchFound Then
-                lstArtists.SelectedIndex -= 1 'nothing selected
+                lstArtists.SelectedIndex = -1 'nothing selected
                 btnShow.Enabled = False
             Else
                 btnShow.Enabled = True
@@ -39,5 +39,26 @@
             lstArtists.SelectedIndex = -1 'nothing selected
             btnShow.Enabled = False
         End If
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        lblSong.Text = "" 'clear song name
+        picCover.Image = Nothing 'clear cover picture
+        txtSearch.Clear()
+        txtSearch.Focus()
+    End Sub
+
+    Private Sub btnShow_Click(sender As Object, e As EventArgs) Handles btnShow.Click
+        Dim Song As String
+        'select corresponding item in song list
+        lstSongs.SelectedIndex = lstArtists.SelectedIndex
+        Song = lstSongs.SelectedItem 'get song name
+        lblSong.Text = Song 'show song name
+        'get cover graphic from image list, put in picture box
+        picCover.Image = imlCovers.Images.Item(Song + ".jpg")
+        txtSearch.Focus() 'focus back to search text box
+    End Sub
+    Private Sub lstArtists_Click(sender As Object, e As EventArgs) Handles lstArtists.Click
+        btnShow.Enabled = True
     End Sub
 End Class
